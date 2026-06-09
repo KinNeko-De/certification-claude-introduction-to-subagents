@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "SubagentStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": "python .claude/hooks/log-subagent-start.py" }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python .claude/hooks/log-subagent-stop.py" }
+        ]
+      }
+    ]
+  }
+}

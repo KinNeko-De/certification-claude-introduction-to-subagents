@@ -1,5 +1,6 @@
 import json
 import sys
+import uuid
 from pathlib import Path
 
 try:
@@ -9,7 +10,7 @@ try:
     transcript_path = payload.get("agent_transcript_path")
     if transcript_path and Path(transcript_path).exists():
         full_response = None
-        with open(transcript_path, encoding="utf-8") as f:
+        with open(transcript_path, encoding="utf-8", errors="replace") as f:
             for line in f:
                 entry = json.loads(line)
                 if entry.get("type") == "assistant":
@@ -22,6 +23,6 @@ try:
     with open(log_file, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
 except Exception as e:
-    error_file = Path(__file__).parent / "debuglogs" / "hook-error.txt"
+    error_file = Path(__file__).parent / "debuglogs" / f"subagent-stop-hook-error-{uuid.uuid4()}.txt"
     with open(error_file, "w", encoding="utf-8") as f:
         f.write(str(e))

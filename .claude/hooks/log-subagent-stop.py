@@ -19,7 +19,9 @@ try:
                             full_response = block["text"]
         payload["full_assistant_response"] = full_response
 
-    log_file = Path(__file__).parent / "debuglogs" / "SubagentStop.json"
+    session_id = payload.get("session_id", "unknown-session")
+    agent_id = payload.get("agent_id", "unknown-agent")
+    log_file = Path(__file__).parent / "debuglogs" / f"SubagentStop-{session_id}-{agent_id}.json"
     with open(log_file, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
 except Exception as e:

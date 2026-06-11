@@ -11,3 +11,4 @@ The agents and persona are written in german. It should write german LinkedIn Po
 # References
 
 [Frontmatter](https://code.claude.com/docs/en/sub-agents)
+[Hooks for subagents](https://code.claude.com/docs/en/sub-agents#define-hooks-for-subagents)

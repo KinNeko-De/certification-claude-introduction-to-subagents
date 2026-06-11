@@ -77,10 +77,11 @@ try:
 
     violations = validate(message)
     if not violations:
-        sys.exit(0)
+       sys.exit(0)
 
     log_failure(payload, violations, message)
 
+    # Workaround so we do not need to track the state of retries. First time this is false, second time this is true
     if payload.get("stop_hook_active"):
         # Already retried once — give up and let the skill handle the raw response.
         sys.exit(0)

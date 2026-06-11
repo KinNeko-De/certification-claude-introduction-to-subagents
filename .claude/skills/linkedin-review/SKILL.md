@@ -38,14 +38,9 @@ Each agent returns a single JSON object with this schema:
 Capture the full response each agent returns.
 
 Step 3 — Validate
-For each agent response, verify:
-- the response parses as a single JSON object (strip a Markdown code fence first if present)
-- `first_impression`, `credibility`, and `verdict` are non-empty strings
-- `relevance` is an integer between 1 and 10
-- `reaction` is null or one of "Daumen hoch", "Gefällt mir", "Unterstütze ich", "Witzig"
-- `comment` is null or a string
+A deterministic SubagentStop hook validates each agent response against the schema and automatically forces one retry on invalid output. Do NOT re-invoke an agent yourself.
 
-If a response fails validation, re-invoke that agent once with the same input. If it fails again, show the user the raw response together with the list of missing or invalid fields, and continue with the remaining reviews.
+If a returned response is still not a single valid JSON object, show the user the raw response and continue with the remaining reviews.
 
 Step 4 — Present results
 Show the three reviews to the user, clearly separated and labeled:

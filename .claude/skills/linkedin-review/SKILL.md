@@ -12,12 +12,12 @@ Post to review: $ARGUMENTS
 If no post text was provided, ask the user to paste the complete LinkedIn post before proceeding.
 
 Step 1 - Identifiy the language
-Identify the language of the post.
+Identify the language of the post. Pass this language to all subagents you create.
 
 Step 2 — Delegate reviews
-Use each of these independent agents to review the post.
+Use each of these independent subagents to review the post.
 Pass the complete post text above (verbatim) to each.
-Tell them to answer in the language you identify in Step 1
+Tell them to answer in the expected language you identify in Step 1
 - linkedin-reader-techie
 - linkedin-reader-beamter
 - linkedin-reader-bedenkentraeger
@@ -43,17 +43,14 @@ A deterministic SubagentStop hook validates each agent response against the sche
 If a returned response is still not a single valid JSON object, show the user the raw response and continue with the remaining reviews.
 
 Step 4 — Present results
-Show the three reviews to the user, clearly separated and labeled:
-1. Review by Techie
-2. Review by Beamter
-3. Review by Bedenkenträger
+Show the reviews of each subagent to the user, clearly separated and labeled in the identified language.
 
-Render each review as a formatted section with these German labels, with the field values verbatim (render null as "Keine"):
-- Erster Eindruck (first_impression)
-- Glaubwürdigkeit (credibility)
-- Relevanz (relevance)
-- Reaktion (reaction)
-- Kommentar (comment)
-- Fazit (verdict)
+Render each review as a formatted section with the identified language, with the field values verbatim (render null as none is he identified language):
+- first_impression
+- credibility
+- relevance
+- reaction
+- comment
+- verdict
 
 Do not show the raw JSON. Do not editorialize or summarize any field content.

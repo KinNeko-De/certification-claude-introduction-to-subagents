@@ -23,7 +23,8 @@ def validate(text):
     except json.JSONDecodeError as e:
         violations.append(
             f"The response is not a pure JSON object ({e}). "
-            "No markdown code block, no text before or after the JSON."
+            " DO NOT place a markdown codeblock before or after the JSON. (Beispiel: ```json\n" + SCHEMA_REMINDER + "\n```)."
+            "Expected schema:\n" + SCHEMA_REMINDER + "\n"
         )
         return violations
     if not isinstance(data, dict):
@@ -91,8 +92,8 @@ try:
         "Your response failed JSON validation:\n"
         + "".join(f"- {v}\n" for v in violations)
         + "\nRespond again with only a single raw JSON object"
-        " — no markdown code block, no text before or after. Expected schema:\n"
-        + SCHEMA_REMINDER + "\n"
+        " DO NOT place a markdown codeblock before or after the JSON. (Beispiel: ```json\n" + SCHEMA_REMINDER + "\n```)."
+        "Expected schema:\n" + SCHEMA_REMINDER + "\n"
     )
     sys.exit(2)
 except SystemExit:

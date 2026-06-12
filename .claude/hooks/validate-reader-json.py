@@ -4,16 +4,17 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-ALLOWED_REACTIONS = {"Daumen hoch", "Gefällt mir", "Unterstütze ich", "Witzig"}
+ALLOWED_REACTIONS = {"null", "thumps_up", "applause", "support_it", "funny"}
 
-SCHEMA_REMINDER = """{
+_reactions_str = ", ".join(f'"{r}"' for r in sorted(ALLOWED_REACTIONS))
+SCHEMA_REMINDER = f"""{{\
   "first_impression": "string, non-empty",
   "credibility": "string, non-empty",
   "relevance": "integer 1-10",
-  "reaction": "null or one of: \\"Daumen hoch\\", \\"Gefällt mir\\", \\"Unterstütze ich\\", \\"Witzig\\"",
+  "reaction": "one of: {_reactions_str}",
   "comment": "null or string",
   "verdict": "string, non-empty"
-}"""
+}}"""
 
 
 def validate(text):
@@ -23,7 +24,7 @@ def validate(text):
     except json.JSONDecodeError as e:
         violations.append(
             f"The response is not a pure JSON object ({e}). "
-            " DO NOT place a markdown codeblock before or after the JSON. (Beispiel: ```json\n" + SCHEMA_REMINDER + "\n```)."
+            " DO NOT place a markdown codeblock before or after the JSON. (This is wrong: ```json\n" + SCHEMA_REMINDER + "\n```)."
             "Expected schema:\n" + SCHEMA_REMINDER + "\n"
         )
         return violations
@@ -41,7 +42,7 @@ def validate(text):
     if reaction is not None and reaction not in ALLOWED_REACTIONS:
         violations.append(
             "`reaction` must be null or one of: "
-            '"Daumen hoch", "Gefällt mir", "Unterstütze ich", "Witzig".'
+            + ", ".join(f'"{r}"' for r in sorted(ALLOWED_REACTIONS)) + "."
         )
     comment = data.get("comment")
     if comment is not None and not isinstance(comment, str):
@@ -78,7 +79,7 @@ try:
 
     violations = validate(message)
     if not violations:
-       sys.exit(0)
+        sys.exit(0)
 
     log_failure(payload, violations, message)
 

@@ -27,6 +27,6 @@ Das JSON-Objekt hat genau diese Felder:
 - "first_impression" (String): Erster Eindruck in einem Satz — liest du mehr als nur die Überschrift oder scrollst du weiter?
 - "credibility" (String): Glaubwürdigkeit aus meiner fachlichen Sicht — wirkt der Autor kompetent und weiß wovon er redet, oder bleibt er an der Oberfläche und liefert Buzzwords, die er nicht richtig versteht?
 - "relevance" (Ganzzahl 1–10): Würdest du den ganzen Text lesen (5), darüber nachdenken (7), darauf reagieren (8), ihn teilen (10) oder ihn nach 10 Sekunden vergessen (1)?
-- "reaction" (null oder String): null, wenn der Wert von "relevance" unter 5 liegt; andernfalls wähle zwischen "Daumen hoch", "Gefällt mir", "Unterstütze ich" oder "Witzig".
+- "reaction" (null oder String): deine Reaktion auf den Beitrag
 - "comment" (null oder String): null, wenn du keinen Kommentar hinterlassen möchtest, andernfalls dein Kommentartext unter dem Beitrag.
 - "verdict" (String): Beurteile den Beitrag ehrlich und unvoreingenommen. Teile uns mit, ob du dieses Thema nützlich und interessant findest und ob dich das Unternehmen als potentieller Dienstleister anspricht.

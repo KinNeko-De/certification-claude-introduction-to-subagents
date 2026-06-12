@@ -4,12 +4,12 @@
   "first_impression": "string, non-empty",
   "credibility": "string, non-empty",
   "relevance": "integer 1-10",
-  "reaction": "null or one of: \\"Daumen hoch\\", \\"Gefällt mir\\", \\"Unterstütze ich\\", \\"Witzig\\"",
+  "reaction": "null or one of the post reactions",
   "comment": "null or string",
   "verdict": "string, non-empty"
 }
 
-# Example Output in English
+# Example Schema Output in English
 {
   "language": "en"
   "first_impression": "Yet another article about the supposed disruption caused by AI that completely ignores the actual risks and makes me want to scroll past it right away.",
@@ -20,8 +20,7 @@
   "verdict": "From a professional standpoint, this article is completely useless for my consultations with politicians. The author completely fails to recognize that this AI automation poses massive data protection risks—who controls what data the AI systems process? Which datasets are being misused for training?"
 }
 
-
-# Example Output in German
+# Example Schema Output in German
 {
   "language": "en"
   "first_impression": "Ein weiterer Beitrag über die vermeintliche Disruption durch KI, der die tatsächlichen Risiken völlig ausblendet und mich sofort zum Weiterscrollen bewegt.",
@@ -32,8 +31,23 @@
   "verdict": "Dieser Beitrag ist aus meiner beruflichen Sicht völlig unbrauchbar für meine Beratungsgespräche mit Politikern. Der Autor verkennt völlig, dass mit dieser KI-Automatisierung massive Datenschutzrisiken entstehen – wer kontrolliert, welche Daten die KI-Systeme verarbeiten? Welche Datensätze werden für das Training missbraucht?"
 }
 
-# Point you MUST avoid
-- Do not use markdown code block around the JSON object. Negativ Example:
+# Point you MUST avoid in the Schema Output
+
+- Do not use markdown code block around the JSON object. Bad Example:
 ```json
-{ JSON object }
+{ json }
 ```
+
+# What is a post reaction?
+
+A post reaction is something that you CAN add to a post. You do not have to react on a post.
+
+# Possible post reactions
+
+| Reaction | When you should use it |
+|----------|------------------------|
+| null     | - you disagree to the author <br> - the quality of the post is low <br> - the author is wrong, comment the post instead |
+| thumps_up | - you agree to the author, but the post does not sweep you off your feet |
+| applause | - you strongly agree to the author, the post sweep you off your feet |
+| support_it | - you strongly agree to the author and you want the same thing |
+| funny | - the post is funny |

@@ -29,7 +29,7 @@ Each agent returns a single JSON object with this schema:
   "first_impression": "string — one sentence: does the reader keep reading or scroll on?",
   "credibility": "string — credibility from the persona's professional point of view",
   "relevance": "integer 1–10 (1 = forgotten after 10 seconds, 5 = read the whole text, 7 = think about it, 8 = react to it, 10 = share it)",
-  "reaction": "null if relevance < 5, otherwise one of: \"Daumen hoch\", \"Gefällt mir\", \"Unterstütze ich\", \"Witzig\"",
+  "reaction": "one of: 'null', 'thumps_up', 'applause', 'support_it', 'funny'",
   "comment": "null, or string — the persona's comment under the post",
   "verdict": "string — honest overall assessment"
 }
@@ -46,11 +46,15 @@ Step 4 — Present results
 Show the reviews of each subagent to the user, clearly separated and labeled in the identified language.
 
 Render each review as a formatted section with the identified language, with the field values verbatim (render null as none is he identified language):
-- first_impression
-- credibility
-- relevance
-- reaction
-- comment
-- verdict
+- first_impression (render field values verbatim)
+- credibility (render field values verbatim)
+- relevance (render values using the template "{relevance}/10" )
+- reaction {translate the enumeration values to natural language using the identified language}
+- comment (render field values verbatim, render null as none is the identified language)
+- verdict (render field values verbatim)
 
 Do not show the raw JSON. Do not editorialize or summarize any field content.
+
+Step 5 — Verdict of all review
+
+Summarize the verdicts of all review subagent to a general verdict

@@ -1,5 +1,13 @@
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          { "type": "command", "command": "python .claude/hooks/log-agent-tool-use.py" }
+        ]
+      }
+    ],
     "SubagentStart": [
       {
         "matcher": "*",

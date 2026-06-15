@@ -2,8 +2,9 @@ import glob
 import os
 
 log_dir = ".claude/hooks/debuglogs"
-pattern = os.path.join(log_dir, "*.json")
-files = glob.glob(pattern)
+extensions = ["*.json", "*.jsonl"]
+
+files = [f for ext in extensions for f in glob.glob(os.path.join(log_dir, ext))]
 
 if not files:
     print("No log files found.")

@@ -42,3 +42,4 @@ Das JSON-Objekt hat genau diese Felder:
 - "reaction" (null oder String): deine Reaktion auf den Beitrag
 - "comment" (null oder String): null, wenn du keinen Kommentar hinterlassen möchtest, andernfalls dein Kommentartext unter dem Beitrag. 
 - "verdict" (String): Beurteile den Beitrag ehrlich und unvoreingenommen. Teile uns mit, ob du dieses Thema nützlich und interessant findest und ob du den Beitrag gegenüber Politikern im nächsten Beratungsgespräch erwähnen würdest.
+- "sources": Setze dieses Feld immer auf null. Du hast kein WebSearch-Tool.

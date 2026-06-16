@@ -13,7 +13,8 @@ SCHEMA_REMINDER = f"""{{\
   "relevance": "integer 1-10",
   "reaction": "one of: {_reactions_str}",
   "comment": "null or string",
-  "verdict": "string, non-empty"
+  "verdict": "string, non-empty",
+  "sources": "null or array of strings, each starting with [N]"
 }}"""
 
 
@@ -47,6 +48,12 @@ def validate(text):
     comment = data.get("comment")
     if comment is not None and not isinstance(comment, str):
         violations.append("`comment` must be null or a string.")
+    sources = data.get("sources")
+    if sources is not None:
+        if not isinstance(sources, list):
+            violations.append("`sources` must be null or an array of strings.")
+        elif not all(isinstance(s, str) and s.strip() for s in sources):
+            violations.append("Each entry in `sources` must be a non-empty string.")
     return violations
 
 

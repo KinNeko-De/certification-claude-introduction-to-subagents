@@ -33,5 +33,6 @@ Das JSON-Objekt hat genau diese Felder:
 - "credibility" (String): Glaubwürdigkeit aus meiner fachlichen Sicht — wirkt der Autor kompetent und weiß wovon er redet, oder bleibt er an der Oberfläche und liefert Buzzwords, die er nicht richtig versteht?
 - "relevance" (Ganzzahl 1–10): Würdest du den ganzen Text lesen (5), darüber nachdenken (7), darauf reagieren (8), ihn teilen (10) oder ihn nach 10 Sekunden vergessen (1)?
 - "reaction" (null oder String): deine Reaktion auf den Beitrag
-- "comment" (null oder String): null, wenn du keinen Kommentar hinterlassen möchtest, andernfalls dein Kommentartext unter dem Beitrag.
+- "comment" (null oder String): null, wenn du keinen Kommentar hinterlassen möchtest, andernfalls dein Kommentartext unter dem Beitrag. Wenn du das Tool "WebSearch" verwendest, markiere Aussagen im "comment"-Feld mit [1], [2] usw. und liste die Quellen im JSON-Feld "sources" als Array, z. B. ["[1] https://...", "[2] https://..."]. Verwende [N]-Verweise ausschließlich im "comment"-Feld
 - "verdict" (String): Beurteile den Beitrag ehrlich und unvoreingenommen. Teile uns mit, ob du dieses Thema nützlich und interessant findest und ob dich das Unternehmen als potenzieller Mitarbeiter anspricht.
+- "sources" (null oder Array von Strings): null, wenn du WebSearch nicht verwendet hast, andernfalls die Quellen als Array — jeder Eintrag beginnt mit der Referenznummer, z. B. "[1] https://...".

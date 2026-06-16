@@ -2,7 +2,8 @@
 {
   "language": "language using 2 characters ISO-639-1-Codes"
   "first_impression": "string, non-empty",
-  "credibility": "string, non-empty",
+  "credibility_score": "null or integer 1-10 (only the techie persona fills this; others use null)",
+  "credibility_comment": "string, non-empty",
   "relevance": "integer 1-10",
   "reaction": "null or one of the post reactions",
   "comment": "null or string",
@@ -14,7 +15,8 @@
 {
   "language": "en"
   "first_impression": "Yet another article about the supposed disruption caused by AI that completely ignores the actual risks and makes me want to scroll past it right away.",
-  "credibility": "The author speaks from a naive perspective that completely ignores the critical security, privacy, and sovereignty issues surrounding AI-driven software development—this is not a well-informed technical discussion, but rather techno-optimism without substance.",
+  "credibility_score": null,
+  "credibility_comment": "The author speaks from a naive perspective that completely ignores the critical security, privacy, and sovereignty issues surrounding AI-driven software development—this is not a well-informed technical discussion, but rather techno-optimism without substance.",
   "relevance": 3,
   "reaction": null,
   "comment": null,
@@ -26,7 +28,8 @@
 {
   "language": "de"
   "first_impression": "Ein weiterer Beitrag über die vermeintliche Disruption durch KI, der die tatsächlichen Risiken völlig ausblendet und mich sofort zum Weiterscrollen bewegt.",
-  "credibility": "Der Autor spricht aus einer naiven Perspektive, die die kritischen Sicherheits-, Datenschutz- und Souveränitätsaspekte der KI-gestützten Softwareentwicklung vollständig ignoriert – das ist keine fundierte fachliche Auseinandersetzung, sondern Techno-Optimismus ohne Substanz.",
+  "credibility_score": null,
+  "credibility_comment": "Der Autor spricht aus einer naiven Perspektive, die die kritischen Sicherheits-, Datenschutz- und Souveränitätsaspekte der KI-gestützten Softwareentwicklung vollständig ignoriert – das ist keine fundierte fachliche Auseinandersetzung, sondern Techno-Optimismus ohne Substanz.",
   "relevance": 3,
   "reaction": null,
   "comment": null,
@@ -38,7 +41,8 @@
 {
   "language": "en",
   "first_impression": "Interesting claim about Rust adoption — worth reading to see if the numbers hold up.",
-  "credibility": "The author's numbers align with recent survey data, though the conclusion overstates the trend.",
+  "credibility_score": 7,
+  "credibility_comment": "The author's numbers broadly align with recent survey data, though the conclusion overstates the trend.",
   "relevance": 7,
   "reaction": "thumps_up",
   "comment": "Stack Overflow's 2024 survey puts Rust adoption at 12% among professional developers [1] — impressive, but still niche. Enterprise blockers are real though [2].",

@@ -9,7 +9,8 @@ ALLOWED_REACTIONS = {"null", "thumps_up", "applause", "support_it", "funny"}
 _reactions_str = ", ".join(f'"{r}"' for r in sorted(ALLOWED_REACTIONS))
 SCHEMA_REMINDER = f"""{{\
   "first_impression": "string, non-empty",
-  "credibility": "string, non-empty",
+  "credibility_score": "null or integer 1-10",
+  "credibility_comment": "string, non-empty",
   "relevance": "integer 1-10",
   "reaction": "one of: {_reactions_str}",
   "comment": "null or string",
@@ -32,13 +33,20 @@ def validate(text):
     if not isinstance(data, dict):
         violations.append("The response must be a single JSON object.")
         return violations
-    for field in ("first_impression", "credibility", "verdict"):
+    for field in ("first_impression", "credibility_comment", "verdict"):
         value = data.get(field)
         if not isinstance(value, str) or not value.strip():
             violations.append(f"`{field}` must be a non-empty string.")
     relevance = data.get("relevance")
     if not isinstance(relevance, int) or isinstance(relevance, bool) or not 1 <= relevance <= 10:
         violations.append("`relevance` must be an integer between 1 and 10.")
+    credibility_score = data.get("credibility_score")
+    if credibility_score is not None and (
+        not isinstance(credibility_score, int)
+        or isinstance(credibility_score, bool)
+        or not 1 <= credibility_score <= 10
+    ):
+        violations.append("`credibility_score` must be null or an integer between 1 and 10.")
     reaction = data.get("reaction")
     if reaction is not None and reaction not in ALLOWED_REACTIONS:
         violations.append(

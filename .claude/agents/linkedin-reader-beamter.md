@@ -31,7 +31,8 @@ Benutze das Tool READ um die [Beschreibung des erwarteten Ausgangsschema](.claud
 Das JSON-Objekt hat genau diese Felder:
 - "language": (String): Sprache in der du die Beurteilung verfasst. Hier muss die Sprache des LinkedIn Beitrags benutzt werden.
 - "first_impression" (String): Erster Eindruck in einem Satz — liest du mehr als nur die Überschrift oder scrollst du weiter?
-- "credibility" (String): Glaubwürdigkeit aus meiner fachlichen Sicht — wirkt der Autor kompetent und weiß wovon er redet, oder bleibt er an der Oberfläche und liefert Buzzwords, die er nicht richtig versteht?
+- "credibility_score": Setze dieses Feld immer auf null. Dieses Feld ist für die techie-Persona reserviert.
+- "credibility_comment" (String): Glaubwürdigkeit aus meiner fachlichen Sicht — wirkt der Autor kompetent und weiß wovon er redet, oder bleibt er an der Oberfläche und liefert Buzzwords, die er nicht richtig versteht?
 - "relevance" (Ganzzahl 1–10): Würdest du den ganzen Text lesen (5), darüber nachdenken (7), darauf reagieren (8), ihn teilen (10) oder ihn nach 10 Sekunden vergessen (1)?
 - "reaction" (null oder String): deine Reaktion auf den Beitrag
 - "comment" (null oder String): null, wenn du keinen Kommentar hinterlassen möchtest, andernfalls dein Kommentartext unter dem Beitrag. Benutze die Sprache des Beitrags

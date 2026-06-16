@@ -4,7 +4,7 @@ import uuid
 from pathlib import Path
 
 try:
-    payload = json.load(sys.stdin)
+    payload = json.loads(sys.stdin.buffer.read().decode("utf-8"))
     session_id = payload.get("session_id", "unknown-session")
     agent_id = payload.get("agent_id", "unknown-agent")
     log_file = Path(__file__).parent / "debuglogs" / f"SubagentStart-{session_id}-{agent_id}.json"

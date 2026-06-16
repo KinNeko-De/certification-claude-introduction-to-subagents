@@ -1,10 +1,18 @@
 {
   "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          { "type": "command", "command": "python .claude/hooks/log-agent-post-tool-use.py" }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Agent",
         "hooks": [
-          { "type": "command", "command": "python .claude/hooks/log-agent-tool-use.py" }
+          { "type": "command", "command": "python .claude/hooks/log-agent-pre-tool-use.py" }
         ]
       }
     ],

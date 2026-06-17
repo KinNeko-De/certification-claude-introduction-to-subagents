@@ -21,9 +21,9 @@ The agents and persona are written in german. It should write german LinkedIn Po
 [x] tools for agent
 [x] hooks for debugging and forcing structured output
 [x] references on reactions
-[ ] scratchfile
+[x] scratchfile
 [ ] skills für agents
-[ ] initial prompt
+[ ] initial prompt (maybe to fix the json?)
 
 # Open Points
 

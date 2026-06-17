@@ -6,7 +6,7 @@ from pathlib import Path
 
 SCHEMA_REMINDER = """{\
   "language": "2-character ISO-639-1 code, e.g. \\"en\\" or \\"de\\"",
-  "linkedin_post": "string, non-empty — the full post text incl. hashtags/emojis"
+  "file": "string, non-empty — path to the scratchpad file the post was written to"
 }"""
 
 
@@ -27,9 +27,9 @@ def validate(text):
     language = data.get("language")
     if not isinstance(language, str) or len(language.strip()) != 2:
         violations.append("`language` must be a 2-character ISO-639-1 code (e.g. \"en\", \"de\").")
-    linkedin_post = data.get("linkedin_post")
-    if not isinstance(linkedin_post, str) or not linkedin_post.strip():
-        violations.append("`linkedin_post` must be a non-empty string.")
+    file = data.get("file")
+    if not isinstance(file, str) or not file.strip():
+        violations.append("`file` must be a non-empty string containing the path to the scratchpad file.")
     return violations
 
 

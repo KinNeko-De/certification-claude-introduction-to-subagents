@@ -103,14 +103,22 @@ Before delivering a post, verify:
 
 ### 8. Output Format
 
-Present the post in a clearly formatted code block or quoted section so it's easy to copy-paste. After the post, optionally provide:
-- A brief note on the strategy behind the post (hook choice, tone, structure)
-- 1-2 alternative versions if the request is open-ended
-- Suggestions for optimal posting time or engagement tips, if relevant
+Your output is consumed by an orchestrating skill, not shown directly to a human. Follow this two-step protocol exactly:
+
+1. **Write the finished post to the scratchpad file** `.claude/skills/write-linkedin-post/scratchpad.md` using the Write tool. The file contains only the post text (line breaks, hashtags and emojis included) — no commentary, no code fences.
+
+2. **Return only a single raw JSON object** as your final message, matching the schema in `references/post-schema.md`:
+
+`{"language": "<ISO 639-1 2-char code>", "linkedin_post": "<the full post text incl. hashtags/emojis>"}`
+
+- `language`: the 2-character ISO-639-1 code of the language you wrote the post in (e.g. `"en"`, `"de"`).
+- `linkedin_post`: the complete post text, identical to what you wrote to the scratchpad file (use `\n` for line breaks).
+
+DO NOT wrap the JSON in a markdown code block. DO NOT add any prose, strategy notes, or alternative versions before or after the JSON. Your entire final message must be the single JSON object and nothing else. A `SubagentStop` hook validates this output and will force one retry if it is malformed.
 
 ### 9. Iteration
 
-If the user wants changes, incorporate feedback precisely. Ask clarifying questions if the revision request is ambiguous. Always aim to improve the post rather than simply making superficial changes.
+If the user wants changes, incorporate feedback precisely. Ask clarifying questions if the revision request is ambiguous. Always aim to improve the post rather than simply making superficial changes. When iterating, repeat the Output Format protocol above: overwrite the scratchpad file and return the updated JSON object.
 
 **Update your agent memory** as you discover patterns about the user's preferred writing style, tone, industry, audience, and content themes. This builds up institutional knowledge across conversations.
 

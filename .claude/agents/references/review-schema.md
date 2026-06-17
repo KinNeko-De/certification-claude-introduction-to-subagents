@@ -12,6 +12,7 @@
 }
 
 # Example Schema Output in English (no WebSearch used)
+<example>
 {
   "language": "en"
   "first_impression": "Yet another article about the supposed disruption caused by AI that completely ignores the actual risks and makes me want to scroll past it right away.",
@@ -23,8 +24,10 @@
   "verdict": "From a professional standpoint, this article is completely useless for my consultations with politicians. The author completely fails to recognize that this AI automation poses massive data protection risks—who controls what data the AI systems process? Which datasets are being misused for training?",
   "sources": null
 }
+</example>
 
 # Example Schema Output in German (no WebSearch used)
+<example>
 {
   "language": "de"
   "first_impression": "Ein weiterer Beitrag über die vermeintliche Disruption durch KI, der die tatsächlichen Risiken völlig ausblendet und mich sofort zum Weiterscrollen bewegt.",
@@ -36,8 +39,10 @@
   "verdict": "Dieser Beitrag ist aus meiner beruflichen Sicht völlig unbrauchbar für meine Beratungsgespräche mit Politikern. Der Autor verkennt völlig, dass mit dieser KI-Automatisierung massive Datenschutzrisiken entstehen – wer kontrolliert, welche Daten die KI-Systeme verarbeiten? Welche Datensätze werden für das Training missbraucht?",
   "sources": null
 }
+</example>
 
 # Example Schema Output with WebSearch citations
+<example>
 {
   "language": "en",
   "first_impression": "Interesting claim about Rust adoption — worth reading to see if the numbers hold up.",
@@ -52,13 +57,16 @@
     "[2] https://www.infoq.com/news/2024/01/rust-enterprise-adoption/"
   ]
 }
+</example>
 
-# Point you MUST avoid in the Schema Output
+# Markdown MUST be avoid in the oupt
 
-- Do not use markdown code block around the JSON object. Bad Example:
+DO NOT use markdown code block around the rounded brackets of the JSON object. DO NOT return markdown text.
+<example>
 ```json
 { json }
 ```
+</example>
 
 # What is a post reaction?
 

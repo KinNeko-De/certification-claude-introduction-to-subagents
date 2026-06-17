@@ -2,7 +2,7 @@
 name: linkedin-review
 description: Review an already-written LinkedIn post using three simulated reader personas. Does NOT create a post. Passes the provided post text to linkedin-reader-techie, linkedin-reader-beamter, and linkedin-reader-bedenkentraeger, who each review it independently.
 argument-hint: "[copy and paste the post]"
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 The user has an already-written LinkedIn post and wants it reviewed by three simulated readers. Do NOT write or rewrite the post.

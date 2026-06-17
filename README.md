@@ -12,3 +12,20 @@ The agents and persona are written in german. It should write german LinkedIn Po
 
 [Frontmatter](https://code.claude.com/docs/en/sub-agents)
 [Hooks for subagents](https://code.claude.com/docs/en/sub-agents#define-hooks-for-subagents)
+
+# Tasks
+
+[x] review skill with 3 subagents
+[x] structured output
+[x] create skill
+[x] tools for agent
+[x] hooks for debugging and forcing structured output
+[x] references on reactions
+[ ] scratchfile
+[ ] skills für agents
+[ ] initial prompt
+
+# Open Points
+
+- I guess the name of the json field can be more descriptive.  "credibility_comment" and "comment" are confusing
+- The techie fail to output correct json the first time since i introduced WebSearch

@@ -41,6 +41,12 @@
         "hooks": [
           { "type": "command", "command": "python .claude/hooks/validate-writer-json.py" }
         ]
+      },
+      {
+        "matcher": "linkedin-post-scorer",
+        "hooks": [
+          { "type": "command", "command": "python .claude/hooks/validate-scorer-json.py" }
+        ]
       }
     ]
   }

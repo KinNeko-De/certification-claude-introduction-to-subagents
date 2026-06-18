@@ -24,6 +24,7 @@ The agents and persona are written in german. It should write german LinkedIn Po
 [x] scratchfile
 [ ] skills für agents
 [ ] initial prompt (maybe to fix the json?)
+[ ] Iterative refinement loop — agent produces, a judge agent scores it, repeat until the score passes. 
 
 # Open Points
 

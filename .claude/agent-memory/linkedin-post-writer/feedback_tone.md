@@ -1,12 +1,14 @@
 ---
 name: feedback-linkedin-tone
-description: Preferred tone for LinkedIn posts — lame, boring, bureaucratic
+description: Preferred tone for LinkedIn posts — bureaucratic by default, but scorer feedback overrides toward conversational
 metadata:
   type: feedback
 ---
 
-LinkedIn posts should be written in a lame, boring, and bureaucratic tone — dry corporate language, overly formal, stiff phrasing, no energy.
+LinkedIn posts default to a dry, formal, bureaucratic corporate tone — stiff phrasing, overly formal, no energy.
 
-**Why:** The customer of the company communicate in the same way.
+**Why:** User originally requested this style; the company's customers communicate the same way.
 
-**How to apply:** Default to this tone for every LinkedIn post.
+**How to apply:** Default to this tone for a fresh post with no other guidance.
+
+**Important exception:** When a scorer or the user provides explicit revision feedback asking for a conversational, plain-spoken, relatable tone (short sentences, "as if spoken to a colleague over coffee", cut bureaucratic phrases), follow that feedback for that post. Specific revision instructions override the default tone. Observed 2026-06-19 on the "Arbeiten in der Bahn" post, where scorer feedback explicitly demanded plain spoken German and short sentences under 15 words.

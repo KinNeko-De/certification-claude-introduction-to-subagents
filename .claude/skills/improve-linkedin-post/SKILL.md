@@ -3,7 +3,6 @@ name: improve-linkedin-post
 description: Write a LinkedIn post and iteratively improve it using the linkedin-post-scorer agent. Loops up to 3 times until the post scores 7/10 or higher. Shows the score after each iteration.
 argument-hint: "[topic]"
 disable-model-invocation: false
-allowed-tools: Read
 ---
 
 Write a LinkedIn post on the given topic and refine it in a score-driven loop. Each iteration: write → score → check. Stop when the post passes (overall score ≥ 7) or after 3 iterations.
@@ -25,7 +24,7 @@ Show the post text to the user (verbatim, easy to copy-paste) with a heading sho
 
 Invoke the `linkedin-post-scorer` subagent. Pass the full post text as the input.
 
-The scorer calls the `check-clarity` skill internally and returns a JSON score object. A SubagentStop hook validates this — do NOT re-invoke the scorer if validation fails.
+The scorer calls the `check-clarity-linkedin-post` skill internally and returns a JSON score object. A SubagentStop hook validates this — do NOT re-invoke the scorer if validation fails.
 
 Parse the JSON. Show the score to the user in a compact table:
 

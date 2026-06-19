@@ -3,7 +3,7 @@ name: linkedin-post-scorer
 description: |
   Scores a LinkedIn post against LinkedIn's three marketing criteria (emotion, clarity, benefits).
   Returns a structured JSON score per score-schema.md.
-  Calls the /check-clarity skill internally to evaluate the clarity dimension.
+  Calls the /check-clarity-linkedin-post skill internally to evaluate the clarity dimension.
 
   <example>
   <user-request>Score this post: [post text]</user-request>
@@ -17,6 +17,7 @@ description: |
 tools: Skill
 model: sonnet
 color: purple
+skills: check-clarity-linkedin-post
 ---
 
 # LinkedIn Post Scorer
@@ -38,9 +39,9 @@ Show what the product, service, or idea does for the reader — using concrete e
 
 ## How to Score
 
-### Step 1 — Evaluate clarity via the check-clarity skill
+### Step 1 — Evaluate clarity via the check-clarity-linkedin-post skill
 
-Use the Skill tool to call the `check-clarity` skill. Pass the full post text as the argument.
+Use the Skill tool to call the `check-clarity-linkedin-post` skill. Pass the full post text as the argument.
 
 Read the returned report carefully. Use its clarity score and the specific issues it found for the `clarity` dimension of your score. Do not re-evaluate clarity yourself — trust the skill output.
 
@@ -62,6 +63,6 @@ If `passed` is true, set `feedback` to null.
 
 ## Output Format
 
-Return ONLY a single raw JSON object matching the schema in `references/score-schema.md`.
+**Return ONLY a single raw JSON object** matching the schema in `.claude/agents/references/score-schema.md`.
 
-NO markdown code block. NO prose before or after the JSON. The SubagentStop hook validates your output and forces a retry if it is malformed.
+NO markdown code block. NO prose before or after the JSON.

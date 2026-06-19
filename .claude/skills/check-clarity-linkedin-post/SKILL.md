@@ -1,5 +1,5 @@
 ---
-name: check-clarity
+name: check-clarity-linkedin-post
 description: Analyse a LinkedIn post for clarity. Checks sentence length, jargon, and conversational tone. Returns a clarity score 1–10 with specific issues. Can be called standalone or by the linkedin-post-scorer agent.
 argument-hint: "[paste the full post text]"
 disable-model-invocation: false

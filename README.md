@@ -30,3 +30,4 @@ The agents and persona are written in german. It should write german LinkedIn Po
 
 - I guess the name of the json field can be more descriptive.  "credibility_comment" and "comment" are confusing
 - The techie fail to output correct json the first time since i introduced WebSearch
+- i tried subagent wants feedback (linkedin-post-writer). i think this is the wrong approach. Currently it should ask for feedback, but not if called from a skill. It is never called directly. Better to write a skill that ask for feedback (like the plan mode?) and then call the subagent with a deterministic input

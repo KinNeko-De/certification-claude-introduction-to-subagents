@@ -61,11 +61,9 @@
 
 # Markdown MUST be avoid in the oupt
 
-DO NOT use markdown code block around the rounded brackets of the JSON object. DO NOT return markdown text.
+DO NOT use markdown code block around the rounded brackets of the JSON object. DO NOT return markdown text. Start with a { and end with a }
 <example>
-```json
 { json }
-```
 </example>
 
 # What is a post reaction?

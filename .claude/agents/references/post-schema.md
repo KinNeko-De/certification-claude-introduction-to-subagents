@@ -22,9 +22,7 @@
 
 # Markdown MUST be avoided in the output
 
-DO NOT use a markdown code block around the curly brackets of the JSON object. DO NOT return markdown text. Return only the single raw JSON object.
+DO NOT use a markdown code block around the curly brackets of the JSON object. DO NOT return markdown text. Return only the single raw JSON object. Start with a { and end with a }
 <example>
-```json
 { json }
-```
 </example>

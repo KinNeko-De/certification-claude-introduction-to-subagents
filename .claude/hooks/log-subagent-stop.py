@@ -1,6 +1,7 @@
 import json
 import sys
 import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
@@ -8,7 +9,8 @@ try:
 
     session_id = payload.get("session_id", "unknown-session")
     agent_id = payload.get("agent_id", "unknown-agent")
-    log_file = Path(__file__).parent / "debuglogs" / f"SubagentStop-{session_id}-{agent_id}.json"
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    log_file = Path(__file__).parent / "debuglogs" / f"SubagentStop-{session_id}-{agent_id}-{timestamp}.json"
     with open(log_file, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
 except Exception as e:

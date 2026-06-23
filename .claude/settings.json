@@ -37,6 +37,12 @@
         ]
       },
       {
+        "matcher": "linkedin-reader-techie",
+        "hooks": [
+          { "type": "command", "command": "python .claude/hooks/validate-techie-websearch.py" }
+        ]
+      },
+      {
         "matcher": "linkedin-post-writer",
         "hooks": [
           { "type": "command", "command": "python .claude/hooks/validate-writer-json.py" }

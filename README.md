@@ -26,6 +26,7 @@ The agents and persona are written in german. It should write german LinkedIn Po
 [x] Iterative refinement loop — agent produces, a judge agent scores it, repeat until the score passes. 
 [x] initial prompt (commit-message-writer, only visible when you start it correctly)
 [x] subagent with forked context (needs [environment variable](https://code.claude.com/docs/en/env-vars#set-environment-variables) CLAUDE_CODE_FORK_SUBAGENT)
+[x] hook that verify tool usage (techie and webSearch.. expected to fail mthe first time most of the time)
 
 # Open Points
 

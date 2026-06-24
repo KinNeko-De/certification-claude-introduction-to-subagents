@@ -27,6 +27,7 @@ The agents and persona are written in german. It should write german LinkedIn Po
 [x] initial prompt (commit-message-writer, only visible when you start it correctly)
 [x] subagent with forked context (needs [environment variable](https://code.claude.com/docs/en/env-vars#set-environment-variables) CLAUDE_CODE_FORK_SUBAGENT)
 [x] hook that verify tool usage (techie and webSearch.. expected to fail mthe first time most of the time)
+[ ] hook that removes json markdown for techie (multiple hooks order) - will not be implemented, there is no way to manipulate the output of a subagent, I will implement that using the SDK only
 
 # Open Points
 
